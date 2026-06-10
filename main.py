@@ -1,3 +1,9 @@
+import os
+
+# Tell Spark which Python executable to use
+os.environ["PYSPARK_PYTHON"] = r"C:\Users\User\AppData\Local\Programs\Python\Python311\python.exe"
+os.environ["PYSPARK_DRIVER_PYTHON"] = r"C:\Users\User\AppData\Local\Programs\Python\Python311\python.exe"
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, avg, max, min, pow, sqrt, when, sum, round as spark_round
 
