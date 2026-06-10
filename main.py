@@ -53,9 +53,4 @@ anomaly_df.show(10)
 anomaly_count_df = anomaly_df.groupBy("sensor_id").agg(sum("anomaly").alias("num_anomalies"))
 anomaly_count_df.show()
 
-# 8. Save results
-stats_df.write.mode("overwrite").parquet("output/sensor_stats.parquet")
-rms_df.write.mode("overwrite").parquet("output/sensor_rms.parquet")
-anomaly_count_df.write.mode("overwrite").parquet("output/sensor_anomalies.parquet")
-
 spark.stop()
