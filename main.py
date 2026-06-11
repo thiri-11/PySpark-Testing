@@ -1,6 +1,9 @@
 import os
 import matplotlib
-matplotlib.use('Agg')
+if os.environ.get('JUPYTER_CI') is None:
+    matplotlib.use('TkAgg')  # interactive, can show plots in VS Code
+else:
+    matplotlib.use('Agg')    # headless, for Jenkins
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pyspark.sql import SparkSession
